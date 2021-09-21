@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5074590732343947328}
   - component: {fileID: 8614720295466563532}
   m_Layer: 31
-  m_Name: FirstTile
+  m_Name: GamePalette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
