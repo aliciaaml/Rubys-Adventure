@@ -5,9 +5,13 @@ using UnityEngine.UI;
 
 public class UIHealthBar : MonoBehaviour
 {
+    public static UIHealthBar instance {get; private set;}
     public Image mask;
     float originalSize;
 
+    void Awake(){
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
