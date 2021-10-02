@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    Rigidbody2D rigidbody2d;
+    
     public float speed = 3.0f;
-    public float changeTime = 3.0f;
     public bool vertical;
+    public float changeTime = 3.0f;
+    
+    Rigidbody2D rigidbody2d;
     float timer;
     int direction = 1;
+
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         timer = changeTime;
+        animator = GetComponent<Animator>();
     }
 
+    // Update is called once per frame
+ 
     void Update(){
         timer -= Time.deltaTime;
 
@@ -25,22 +32,24 @@ public class EnemyController : MonoBehaviour
             direction = -direction;
             timer = changeTime;
         }
-    }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
         Vector2 position = rigidbody2d.position;
 
         if(vertical){
             position.y = position.y + Time.deltaTime * speed * direction;
+            animator.SetFloat("Move X", 0);
+            animator.SetFloat("Move Y", direction);
 
         } else {
             position.x = position.x + Time.deltaTime * speed * direction;
+            animator.SetFloat("Move X", direction);
+            animator.SetFloat("Move Y", 0);
         }
          
          rigidbody2d.MovePosition(position);
     }
+
+
 
     void OnCollisionEnter2D(Collision2D other){
         RubyController player = other.gameObject.GetComponent<RubyController>();
