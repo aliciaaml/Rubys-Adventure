@@ -5,6 +5,7 @@ using UnityEngine;
 public class RubyController : MonoBehaviour
 {
   public float speed = 3.0f;
+  public GameObject projectilePrefab;
 
   public int maxHealth = 5;
   public float timeInvincible = 2.0f;
@@ -33,7 +34,7 @@ public class RubyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
       float horizontal = Input.GetAxis("Horizontal");
       float vertical = Input.GetAxis("Vertical");             //El personaje es frame independent
@@ -52,30 +53,53 @@ public class RubyController : MonoBehaviour
         
       Vector2 position = rigidbody2d.position;
         
-      position = position + move * speed * Time.deltaTime;
+      position = position + move * speed * Time.fixedDeltaTime;
         
       rigidbody2d.MovePosition(position);
         
-      if(isInvincible){
+      
+      if(Input.GetKeyDown(KeyCode.C))
+      {
+        Launch();
+      }
+    }
+
+    void Update(){
+
+      if(isInvincible)
+      {
         invincibleTimer -= Time.deltaTime;
-        if(invincibleTimer < 0)
+        if(invincibleTimer < 0){
           isInvincible = false;
+        }
+          
         
       }
     }
 
-
     public void ChangeHealth(int amount){
       if(amount < 0){
-        animator.SetTrigger("Hit");
+        
         if(isInvincible) 
           return;
+          
         isInvincible = true;
         invincibleTimer = timeInvincible;
+        animator.SetTrigger("Hit");
       }
 
       currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
       //Debug.Log("LIFE : " + currentHealth + "/" + maxHealth);
       UIHealthBar.instance.SetValue(currentHealth/ (float)maxHealth);
+    }
+
+    void Launch()
+    {
+      GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+
+      Projectile projectile = projectileObject.GetComponent<Projectile>();
+      projectile.Launch(new Vector2(0,1), 300.0f);
+
+      animator.SetTrigger("Launch");
     }
 }

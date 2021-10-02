@@ -32,7 +32,9 @@ public class EnemyController : MonoBehaviour
             direction = -direction;
             timer = changeTime;
         }
-
+    }
+    void FixedUpdate()
+    {
         Vector2 position = rigidbody2d.position;
 
         if(vertical){
