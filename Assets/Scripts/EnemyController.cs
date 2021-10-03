@@ -32,7 +32,10 @@ public class EnemyController : MonoBehaviour
             direction = -direction;
             timer = changeTime;
         }
+    }
 
+    void FixedUpdate(){
+        
         Vector2 position = rigidbody2d.position;
 
         if(vertical){
@@ -48,8 +51,6 @@ public class EnemyController : MonoBehaviour
          
          rigidbody2d.MovePosition(position);
     }
-
-
 
     void OnCollisionEnter2D(Collision2D other){
         RubyController player = other.gameObject.GetComponent<RubyController>();
