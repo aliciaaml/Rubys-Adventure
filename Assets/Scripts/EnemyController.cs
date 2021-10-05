@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public float speed = 3.0f;
     public bool vertical;
     public float changeTime = 3.0f;
+    bool broken=true;
     
     Rigidbody2D rigidbody2d;
     float timer;
@@ -49,10 +50,22 @@ public class EnemyController : MonoBehaviour
         }
          
          rigidbody2d.MovePosition(position);
+
+         if(!broken)
+        {
+            return;
+        }
     }
 
 
-
+    public void Fix()
+    {
+       
+        broken = false;
+        rigidbody2d.simulated = false;
+        animator.SetTrigger("Fixed");
+        
+    }
     void OnCollisionEnter2D(Collision2D other){
         RubyController player = other.gameObject.GetComponent<RubyController>();
 

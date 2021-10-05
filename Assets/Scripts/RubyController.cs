@@ -98,7 +98,7 @@ public class RubyController : MonoBehaviour
       GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
 
       Projectile projectile = projectileObject.GetComponent<Projectile>();
-      projectile.Launch(new Vector2(0,1), 300.0f);
+      projectile.Launch(lookDirection, 300.0f);
 
       animator.SetTrigger("Launch");
     }
