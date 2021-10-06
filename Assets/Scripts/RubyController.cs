@@ -28,6 +28,7 @@ public class RubyController : MonoBehaviour
     public AudioClip throwClip;
     public AudioClip damageClip;
 
+
     AudioSource audioSource;
 
  
@@ -58,6 +59,7 @@ public class RubyController : MonoBehaviour
         {
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
+            
         }
         
         animator.SetFloat("Look X", lookDirection.x);
