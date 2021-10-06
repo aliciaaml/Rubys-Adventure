@@ -71466,33 +71466,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4170286509627358575, guid: 8beda628807fd0d489ad876da03021c9, type: 3}
-      propertyPath: m_SleepingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9055695373170112672, guid: 8beda628807fd0d489ad876da03021c9, type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9055695373170112672, guid: 8beda628807fd0d489ad876da03021c9, type: 3}
-      propertyPath: maxHealth
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 9055695373170112675, guid: 8beda628807fd0d489ad876da03021c9, type: 3}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9055695373170112675, guid: 8beda628807fd0d489ad876da03021c9, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.7242
-      objectReference: {fileID: 0}
-    - target: {fileID: 9055695373170112675, guid: 8beda628807fd0d489ad876da03021c9, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.7242
-      objectReference: {fileID: 0}
-    - target: {fileID: 9055695373170112675, guid: 8beda628807fd0d489ad876da03021c9, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.7242
       objectReference: {fileID: 0}
     - target: {fileID: 9055695373170112675, guid: 8beda628807fd0d489ad876da03021c9, type: 3}
       propertyPath: m_LocalPosition.x
