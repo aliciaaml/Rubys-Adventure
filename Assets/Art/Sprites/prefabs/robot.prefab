@@ -324,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1082270708537886026, guid: 9a1a06fa44dc5d34ea23ab5a63fe902e, type: 3}
       propertyPath: m_SortingOrder
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1082270708537886027, guid: 9a1a06fa44dc5d34ea23ab5a63fe902e, type: 3}
       propertyPath: looping
