@@ -15,6 +15,8 @@ public class EnemyController : MonoBehaviour
     
     Animator animator;
 
+    public ParticleSystem smokeEffect;
+
     public AudioClip fixedClip;
 
     AudioSource audioSource;
@@ -88,7 +90,7 @@ public class EnemyController : MonoBehaviour
         rigidbody2d.simulated = false;
         //optional if you added the fixed animation
         animator.SetTrigger("Fixed");
-
+        smokeEffect.Stop();
         audioSource.Stop();
         audioSource.PlayOneShot(fixedClip);
     }
